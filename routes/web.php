@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\FacadesR\oute;
-use app\Http\Controllers\TodoController;
+use App\Http\Controllers\TodoController;
 
 Route::get('/', function () {
     return view('welcome');
