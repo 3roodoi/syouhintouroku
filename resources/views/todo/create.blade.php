@@ -10,7 +10,7 @@
                 <form method="POST" action="/todos">
                     @csrf
                     <div class="form-group">
-                        <label for="title" class="control-label">タイトル</label>
+                        <label for="title" class="control-label">商品名</label>
                         <input class="form-control" name="title" type="text">
                     </div>
                     <button class="btn btn-primary" type="submit">登録</button>
