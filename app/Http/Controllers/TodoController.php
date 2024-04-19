@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TodoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * ▪️git checkout
      */
 public function index()
 {
@@ -32,11 +32,19 @@ public function index()
     {
         $todo = new Todo();
         $todo->title = $request->input('title');
+        $todo->stock = $request->input('stock', false);
+        // $todo->image = $request->input('image'); //設定必要 jpgまたはpng
+        // if ($request->hasFile('image')) {
+        //     $fileName = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
+        //     $request->file('image')->storeAs('public/images', $fileName);
+        //     $todo->image = $fileName;
+        // }
+        // $todo->stock = $request->input('stock');
         $todo->save();
 
         return redirect('todos')->with(
             'status',
-            $todo->title . 'を登録しました!'
+            $todo->title . $todo->stock . 'を登録しました!'
         );
     }
 
@@ -56,7 +64,7 @@ public function index()
     public function edit(string $id)
     {
         $todo = Todo::find($id);
-         return view('todo.edit', compact('todo'));
+        return view('todo.edit', compact('todo'));
     }
 
     /**
@@ -67,6 +75,7 @@ public function index()
         $todo = Todo::find($id);
 
         $todo->title = $request->input('title');
+        $todo->stock = $request->input('stock');
         $todo->save();
 
         return redirect('todos')->with(
@@ -99,3 +108,4 @@ public function index()
 // ::find: これは、Eloquent ORM における静的メソッドです。このメソッドは、主キー値を使用して、データベースからレコードを検索します。
 // ($id): これは、検索する Todo エントリの主キー値を指定するための引数です。
 // $todo: これは、検索結果を格納するための変数です。この変数には、Todo インスタンスが格納されます。
+

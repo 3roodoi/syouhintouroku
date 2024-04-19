@@ -17,6 +17,10 @@
                             <th>title</th>
                             <td>{{$todo->title}}</td>
                         </tr>
+                        <tr>
+                            <th>在庫</th>
+                            <td>{{$todo->stock ? '有り':'無し'}}</td>
+                        </tr>
                     </tbody>
                 </table>
                 <a href="{{ url('todos')}}" class="btn btn-info">戻る</a>

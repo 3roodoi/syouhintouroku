@@ -7,11 +7,12 @@
 
     <title>商品登録</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
     <nav class="navbar navbar-light bg-light mb-3">
-        <a class="navber-brand" href="{{ url("todo") }}">商品リスト</a>
+        <a class="navber-brand" href="{{ url("http://localhost/todos") }}">商品一覧</a>
     </nav>
     <div class="container-fluid">
         @yield('content')
