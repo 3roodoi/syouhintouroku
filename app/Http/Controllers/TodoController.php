@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TodoController extends Controller
 {
@@ -28,23 +29,47 @@ public function index()
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+
+    //storeの変更前コード
+    // public function store(Request $request)
+    // {
+        // $todo = new Todo();
+        // $todo->title = $request->input('title');
+        // $todo->stock = $request->input('stock', false);
+        // // $todo->image = $request->input('image');
+        // // if ($request->hasFile('image')) {
+        // //         $fileName = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
+        // //         $request->file('image')->storeAs('public/images', $fileName);
+        // //         $todo->image = $fileName;
+        // //     }
+        // $imagePath = $request->file('image')->store('images', 'public');
+        // $todo->image = $imagePath;
+
+        //     $todo->stock = $request->input('stock');
+        // $todo->save();
+        // return redirect('todos')->with(
+        //     'status',
+        //     $todo->title . $todo->stock . $todo->image .'を登録しました!'
+    //     );
+    // }
+        //storeの変更前コード
+
+
+        public function store(Request $request)
     {
         $todo = new Todo();
         $todo->title = $request->input('title');
         $todo->stock = $request->input('stock', false);
-        // $todo->image = $request->input('image'); //設定必要 jpgまたはpng
-        // if ($request->hasFile('image')) {
-        //     $fileName = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
-        //     $request->file('image')->storeAs('public/images', $fileName);
-        //     $todo->image = $fileName;
-        // }
-        // $todo->stock = $request->input('stock');
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $todo->image = $imagePath;
+        }
         $todo->save();
 
         return redirect('todos')->with(
             'status',
-            $todo->title . $todo->stock . 'を登録しました!'
+            $todo->title . 'を登録しました!'
         );
     }
 
@@ -73,9 +98,12 @@ public function index()
     public function update(Request $request, string $id)
     {
         $todo = Todo::find($id);
-
         $todo->title = $request->input('title');
         $todo->stock = $request->input('stock');
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $todo->image = $imagePath;
+        }
         $todo->save();
 
         return redirect('todos')->with(

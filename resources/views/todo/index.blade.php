@@ -18,6 +18,8 @@
                         <tr>
                             <th>id</th>
                             <th>商品名</th>
+                            <th>商品画像</th>
+                            <th>価格</th>
                             <th>在庫</th>
                             <th></th>
                             <th></th>
@@ -29,6 +31,12 @@
                         <tr>
                             <td>{{ $todo->id }}</td>
                             <td>{{ $todo->title }}</td>
+                            <td>
+                                @if($todo->image)
+                                    <img src="{{ asset('storage/' . $todo->image) }}" alt="{{ $todo->title }}" style="width: 100px; height: 100px;">
+                                @endif
+                            </td>
+                            <td>{{ $todo->price }} 円</td>
                             <td>{{ $todo->stock ? '有り' : '無し' }}</td>
                             <td><a href="{{ url('todos/' . $todo->id) }}" class="btn btn-info">詳細</a></td>
                             <td><a href="{{ url('todos/' . $todo->id . '/edit') }}" class="btn btn-primary">編集</a></td>

@@ -18,6 +18,17 @@
                             <td>{{$todo->title}}</td>
                         </tr>
                         <tr>
+                            <th>画像</th>
+                            <td>
+                                @if($todo->image) <img src="{{ asset('storage/' . $todo->image) }}" alt="{{ $todo->title }}" style="width: 50%; height: 50%;">
+                                @endif
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
                             <th>在庫</th>
                             <td>{{$todo->stock ? '有り':'無し'}}</td>
                         </tr>

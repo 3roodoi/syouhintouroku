@@ -7,22 +7,29 @@
                 編集画面
             </div>
             <div class="card-body">
-                <form method="POST" action="/todos/{{ $todo->id }}" class="form-horizontal">
+                <form method="POST" action="/todos/{{ $todo->id }}" class="form-horizontal" enctype="multipart/form-data">
                     @csrf
-
                     @method('PUT')
-
                     <div class="form-group">
                         <label for="id" class="controllabel">ID</label>
                         <div>{{ $todo->id }}</div>
                     </div>
                     <hr>
                     <div class="form-group">
-                        {{-- <div class="form-group"> タグは、フォーム要素を囲むように配置します。 --}}
                         <label for="title" class="control-label">タイトル</label>
                         <input class="form-control" name="title" type="text" value="{{ $todo->title }}">
                     </div>
 
+                    <div class="form-group">
+                        <label for="image" class="control-label">画像</label>
+                        <input class="form-control" name="image" type="file">
+                        @if ($todo->image)
+                            <img src="{{ asset('storage/' . $todo->image) }}" alt="{{ $todo->title }}" style="width: 300px; height: 300px;">
+                        @endif
+                    </div>
+
+
+                    <br>
                     <div class="form-group">
                         <label for="stock" class="control-label">在庫</label>
                         <br>
