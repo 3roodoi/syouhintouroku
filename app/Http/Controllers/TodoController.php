@@ -18,53 +18,25 @@ public function index()
     return view('todo.index', compact('todos'));
 }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+// 登録画面
     public function create()
     {
         return view('todo.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-
-    //storeの変更前コード
-    // public function store(Request $request)
-    // {
-        // $todo = new Todo();
-        // $todo->title = $request->input('title');
-        // $todo->stock = $request->input('stock', false);
-        // // $todo->image = $request->input('image');
-        // // if ($request->hasFile('image')) {
-        // //         $fileName = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
-        // //         $request->file('image')->storeAs('public/images', $fileName);
-        // //         $todo->image = $fileName;
-        // //     }
-        // $imagePath = $request->file('image')->store('images', 'public');
-        // $todo->image = $imagePath;
-
-        //     $todo->stock = $request->input('stock');
-        // $todo->save();
-        // return redirect('todos')->with(
-        //     'status',
-        //     $todo->title . $todo->stock . $todo->image .'を登録しました!'
-    //     );
-    // }
-        //storeの変更前コード
-
-
         public function store(Request $request)
     {
         $todo = new Todo();
-        $todo->title = $request->input('title');
-        $todo->stock = $request->input('stock', false);
+        $todo->title = $request->input('title');  //商品名
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
-            $todo->image = $imagePath;
+            $todo->image = $imagePath;  //商品画像
         }
+        $todo->description = $request->input('description');  //商品説明
+        $todo->price = $request->input('price');  //価格
+        $todo->stock = $request->input('stock', false);  //在庫
+
         $todo->save();
 
         return redirect('todos')->with(
@@ -83,9 +55,8 @@ public function index()
         return view('todo.show', compact('todo'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
+// 編集画面
     public function edit(string $id)
     {
         $todo = Todo::find($id);
@@ -98,11 +69,13 @@ public function index()
     public function update(Request $request, string $id)
     {
         $todo = Todo::find($id);
-        $todo->title = $request->input('title');
-        $todo->stock = $request->input('stock');
+        $todo->title = $request->input('title');  //商品名
+        $todo->stock = $request->input('stock');  //在庫
+        $todo->price = $request->input('price');  //価格
+
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
-            $todo->image = $imagePath;
+            $todo->image = $imagePath;  //画像
         }
         $todo->save();
 

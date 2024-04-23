@@ -24,7 +24,14 @@
                                 @endif
                             </td>
                         </tr>
-
+                        <tr>
+                            <th>価格</th>
+                            <td>{{$todo->price}} 円</td>
+                        </tr>
+                        <tr>
+                            <th>商品説明</th>
+                            <td>{{$todo->description}} </td>
+                        </tr>
 
 
 

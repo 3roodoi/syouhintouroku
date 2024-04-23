@@ -28,6 +28,12 @@
                         @endif
                     </div>
 
+                    <div class="form-group">
+                        <label for="title" class="control-label">価格</label>
+                        <input class="form-control" name="price" type="text"
+                        value="{{ $todo->price }}">
+                        <small class="form-text text-muted">半角数字で入力してください。</small>
+                    </div>
 
                     <br>
                     <div class="form-group">

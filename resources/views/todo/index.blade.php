@@ -20,6 +20,7 @@
                             <th>商品名</th>
                             <th>商品画像</th>
                             <th>価格</th>
+                            <th>商品説明</th>
                             <th>在庫</th>
                             <th></th>
                             <th></th>
@@ -37,6 +38,7 @@
                                 @endif
                             </td>
                             <td>{{ $todo->price }} 円</td>
+                            <td>{{ $todo->description }}</td>
                             <td>{{ $todo->stock ? '有り' : '無し' }}</td>
                             <td><a href="{{ url('todos/' . $todo->id) }}" class="btn btn-info">詳細</a></td>
                             <td><a href="{{ url('todos/' . $todo->id . '/edit') }}" class="btn btn-primary">編集</a></td>
