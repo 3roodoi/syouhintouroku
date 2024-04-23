@@ -72,6 +72,7 @@ public function index()
         $todo->title = $request->input('title');  //商品名
         $todo->stock = $request->input('stock');  //在庫
         $todo->price = $request->input('price');  //価格
+        $todo->description = $request->input('description');  //商品説明
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
@@ -100,13 +101,4 @@ public function index()
     }
 }
 
-// $todo = Todo::find($id); の意味
-// Laravel フレームワークにおける Eloquent ORM を使用して、データベース から Todo エントリ を検索し、
-// その結果を $todo 変数に格納するものです。
-
-// 詳細な説明
-// Todo: これは、Todo モデルを表すクラスです。このクラスは、データベースの todos テーブルと関連付けられています。
-// ::find: これは、Eloquent ORM における静的メソッドです。このメソッドは、主キー値を使用して、データベースからレコードを検索します。
-// ($id): これは、検索する Todo エントリの主キー値を指定するための引数です。
-// $todo: これは、検索結果を格納するための変数です。この変数には、Todo インスタンスが格納されます。
 

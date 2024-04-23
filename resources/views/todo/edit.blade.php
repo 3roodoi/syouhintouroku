@@ -35,6 +35,12 @@
                         <small class="form-text text-muted">半角数字で入力してください。</small>
                     </div>
 
+                    <div class="form-group">
+                        <label for="title" class="control-label">商品説明</label>
+                        <input class="form-control" name="description" type="text" value="{{ $todo->description }}" >
+                        <small class="form-text text-muted">半角数字で入力してください。</small>
+                    </div>
+
                     <br>
                     <div class="form-group">
                         <label for="stock" class="control-label">在庫</label>
