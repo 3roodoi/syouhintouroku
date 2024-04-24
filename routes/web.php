@@ -14,7 +14,3 @@ Route::get('todos/{id}', [TodoController::class, 'show']);
 Route::get('todos/{id}/edit', [TodoController::class, 'edit']);
 Route::put('todos/{id}', [TodoController::class, 'update']);
 Route::delete('todos/{id}', [TodoController::class, 'destroy']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
