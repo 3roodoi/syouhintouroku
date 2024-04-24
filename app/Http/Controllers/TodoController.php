@@ -45,6 +45,13 @@ public function index()
         );
     }
 
+    // public function rules()
+    // {
+    //     return [
+    //         'title' => 'required|max:4'
+    //     ];
+    // }
+
     /**
      * Display the specified resource.
      */
