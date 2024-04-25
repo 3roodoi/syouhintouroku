@@ -82,28 +82,24 @@
 <section class="dorayaki">
 <link rel="stylesheet" href="{{ asset('/styles.css') }}">
 
-  <div>
-    <h2>■どら焼き 白黒8個（黒餡4個/白餡4個）</h2>
-    <p>
-      国産小麦粉を使ったしっかりとした生地に、
-      丁寧に炊き上げた餡をぎっしり詰めた博多どら焼きです。濃厚な舌ざわりで甘さ控えめ、贈り物にもおすすめです。
-    </p>
-    <p>1,800円(税込)</p>
+    <div>
+        <h2>■どら焼き 白黒8個（黒餡4個/白餡4個）</h2>
+        <p>
+        国産小麦粉を使ったしっかりとした生地に、
+        丁寧に炊き上げた餡をぎっしり詰めた博多どら焼きです。濃厚な舌ざわりで甘さ控えめ、贈り物にもおすすめです。
+        </p>
+        <p>1,800円(税込)</p>
     <button>購入する</button>
-  </div>
-<div>
-  <img src="../img/【商品】どらやき8個.jpg" width="500" height="400" alt="【商品】どらやき8個">
-</div>
+    </div>
+    <div>
+        <img src="../img/【商品】どらやき8個.jpg" width="500" height="400" alt="【商品】どらやき8個">
+    </div>
 </section>
-
-
     <footer>
         <div class="container">
             <img src="../img/2長方形ロゴ.png" alt="問い合わせ先">
             <p>&copy; 2024 大土井商店公式ホームページ</p>
         </div>
-
-
     </footer>
 </body>
 </html>

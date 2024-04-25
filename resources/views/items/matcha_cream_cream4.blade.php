@@ -73,28 +73,23 @@
     </body>
 
 <section class="dorayaki">
-  <div>
+    <div>
     <h2>■クリームどら焼き 白黒4個（黒餡2個/白餡2個）</h2>
     <p>
-      贅沢な生クリームどら焼き2種をセットで。餡子とクリームのハーモニーを食べ比べてお楽しみください。
-
+    贅沢な生クリームどら焼き2種をセットで。餡子とクリームのハーモニーを食べ比べてお楽しみください。
     </p>
     <p>1,600円(税込)</p>
     <button>購入する</button>
-  </div>
-<div>
-  <img src="../img/【商品】クリームどら焼き4個.jpg" width="500" height="400" alt="【商品】クリーム4個">
-</div>
+    </div>
+    <div>
+        <img src="../img/【商品】クリームどら焼き4個.jpg" width="500" height="400" alt="【商品】クリーム4個">
+    </div>
 </section>
-
-
     <footer>
         <div class="container">
             <img src="../img/2長方形ロゴ.png" alt="問い合わせ先">
             <p>&copy; 2024 大土井商店公式ホームページ</p>
         </div>
-
-
     </footer>
 </body>
 </html>
