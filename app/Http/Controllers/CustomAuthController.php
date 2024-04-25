@@ -25,7 +25,7 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('todos') //dashboardから変更
+            return redirect()->intended('todos') 
                 ->withSuccess('Signed in');
         }
         $validator['emailPassword'] = 'メールアドレスもしくはパスワードが間違っています。';
@@ -34,7 +34,7 @@ class CustomAuthController extends Controller
 
     public function register()
     {
-        return view('auth.register'); //registrationから変更
+        return view('auth.register');
     }
 
     public function customRegister(Request $request)
@@ -60,10 +60,10 @@ class CustomAuthController extends Controller
         ]);
     }
 
-    public function todos() //dashboard からtodosに変更
+    public function todos()
     {
         if(Auth::check()){
-            return view('todos'); //dashboardから変更
+            return view('todos');
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');

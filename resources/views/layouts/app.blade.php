@@ -12,7 +12,6 @@
 
     <body>
         <nav class="navbar navbar-light bg-light mb-3">
-            {{-- <a class="navber-brand" href="{{ url("http://localhost/todos") }}">商品登録</a> --}}
         </nav>
         <div class="container-fluid">
             @yield('content')
