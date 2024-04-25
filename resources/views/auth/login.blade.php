@@ -42,7 +42,7 @@
 
                         <div class="form-group mb-3">
                             <div class="text">
-                                <a href="/welcom">戻る</a>
+                                <a href="/welcome">戻る</a>
                             </div>
                         </div>
 

@@ -121,16 +121,18 @@
 
     <nav class="navbar navbar-light navbar-expand-lg mb-5"  style="background-color:rgb(26, 129, 248);">
         <div class="container" >
-            <a class="navbar-brand mr-auto" href="todos" style="color: white;">編集ページ</a>
-            <div class="collapse navbar-collapse" id="navbarNav" >
-                <ul class="navbar-nav ml-auto">
-                    <a class="nav-link" href="{{ route('signout') }}" style="color: white" >Logout</a>
-                </ul>
+            <a class="navbar-brand mr-auto" href="todos" style="color: white;">出品編集ページ</a>
+            <div class="navbar-nav ml-auto" style="display: flex; justify-content: flex-end;">
+                {{-- <div class="navbar-nav ml-auto"> --}}
+                    <div class="navbar-nav style=display: flex; justify-content: flex-end;">
+                    <a class="nav-link" href="{{ route('signout') }}" style="color: white" >ログアウト</a>
+                </div>
             </div>
-            <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            {{-- <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span> --}}
             </button>
+            {{-- 上記を修正 --}}
         </div>
     </nav>
 </body>

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/Users/daidoitakashisen/Desktop/syouhintouroku/resources/html/img/正方形ロゴ-full.png">
-    <title>店舗概要 | 大土井商店 </title>
-    <link rel="stylesheet" href="/Users/daidoitakashisen/Desktop/syouhintouroku/resources/css/styles.css">
+    <link rel="icon" href="img/正方形ロゴ.png">
+    <title>商品紹介 | 大土井商店</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -23,10 +23,10 @@
             <h3>
                 <nav>
                     <ul>
-                        <li><a href="../html/index.html">商品紹介</a></li>
-                        <li><a href="../html/kodawari.html">こだわりの無添加と自家製餡子</a></li>
-                        <li><a href="../html/kaisyagaiyou.html">店舗概要</a></li>
-                        <li><a href="../html/contact.html">お問い合わせ</a></li>
+                        <li><a href="{{ url('/welcome') }}">商品紹介</a></li>
+                        <li><a href="{{ url('/kodawari') }}">こだわりの無添加と自家製餡子</a></li>
+                        <li><a href="{{ url('/kaisyagaiyou') }}">店舗概要</a></li>
+                        <li><a href="{{ url('/contact') }}">お問い合わせ</a></li>
                     </ul>
                 </nav>
         </div>
@@ -35,16 +35,15 @@
 
     <style>
         header {
-            background-image: url('/Users/daidoitakashisen/Desktop/syouhintouroku/resources/html/img/どら焼き.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 5vw 0;
-            max-width: 100%;
-            height: 100%;
-            position: relative;
-            /* 必要に応じて追加 */
-        }
+    background-image: url("{{ asset('img/どら焼き.png') }}");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 5vw 0;
+    max-width: 100%;
+    height: 100%;
+    position: relative;
+}
 
         header::before {
             content: "";
@@ -53,12 +52,26 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* 固定値ではなく100%に変更 */
             background-color: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
     </style>
-    </head>
+
+    <body>
+        <!-- <header></header> -->
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                adjustOverlayHeight();
+                window.addEventListener('resize', adjustOverlayHeight);
+            });
+
+            function adjustOverlayHeight() {
+                var header = document.querySelector('header');
+                var overlay = header.querySelector('::before');
+                overlay.style.height = header.offsetHeight + 'px';
+            }
+        </script>
+    </body>
 
     <main>
         <section class="company-info">
@@ -85,11 +98,9 @@
 
     <footer>
         <div class="container">
-            <img src="/Users/daidoitakashisen/Desktop/syouhintouroku/resources/html/img/2長方形ロゴ.png" alt="問い合わせ先">
+            <img src="img/2長方形ロゴ.png" alt="問い合わせ先">
             <p>&copy; 2024 大土井商店公式ホームページ</p>
         </div>
-
-
     </footer>
 </body>
 

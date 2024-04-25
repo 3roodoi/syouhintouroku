@@ -28,7 +28,7 @@ class CustomAuthController extends Controller
             return redirect()->intended('todos') //dashboardから変更
                         ->withSuccess('Signed in');
         }
-        $validator['emailPassword'] = 'Email address or password is incorrect.';
+        $validator['emailPassword'] = 'メールアドレスもしくはパスワードが間違っています。';
         return redirect("login")->withErrors($validator);
     }
 

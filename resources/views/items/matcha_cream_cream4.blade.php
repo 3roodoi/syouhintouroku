@@ -58,7 +58,6 @@
     </style>
 
     <body>
-        <!-- <header></header> -->
         <script>
             window.addEventListener('DOMContentLoaded', function () {
                 adjustOverlayHeight();
@@ -73,62 +72,30 @@
         </script>
     </body>
 
-    <div class="container">
-        <section id="products" class="products-section">
-            <h2>商品紹介</h2>
-            <ul>
-                <li>
-                    <a href="{{ url('/dorayaki_bkwt8') }}">
-                        <img src="/img/【商品】どらやき8個.jpg" width="400" height="400" alt="どら焼き8個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/dorayaki_bkwt16') }}">
-                        <img src="../img/【商品】どらやき16個.jpg" width="400" height="400" alt="どら焼き16個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/cream4') }}">
-                        <img src="../img/【商品】クリーム小豆4個.jpg" width="400" height="400" alt="クリーム小豆4個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/cream8') }}">
-                        <img src="../img/【商品】クリーム小豆8個.jpg" width="400" height="400" alt="クリーム小豆8個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/matcha_cream4') }}">
-                        <img src="../img/【商品】抹茶4個.jpg" width="400" height="400" alt="抹茶4個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/matcha_cream_cream4') }}">
-                        <img src="../img/【商品】クリームどら焼き4個.jpg" width="400" height="400" alt="クリームどら焼き4個">
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </div>
+<section class="dorayaki">
+  <div>
+    <h2>■クリームどら焼き 白黒4個（黒餡2個/白餡2個）</h2>
+    <p>
+      贅沢な生クリームどら焼き2種をセットで。餡子とクリームのハーモニーを食べ比べてお楽しみください。
+
+    </p>
+    <p>1,600円(税込)</p>
+    <button>購入する</button>
+  </div>
+<div>
+  <img src="../img/【商品】クリームどら焼き4個.jpg" width="500" height="400" alt="【商品】クリーム4個">
+</div>
+</section>
+
 
     <footer>
         <div class="container">
-            <img src="img/2長方形ロゴ.png" alt="問い合わせ先">
+            <img src="../img/2長方形ロゴ.png" alt="問い合わせ先">
             <p>&copy; 2024 大土井商店公式ホームページ</p>
         </div>
+
+
     </footer>
-
-        <div class="container" style="text-align:center; color:black;">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav">
-                <a class="nav-link" href="{{ route('login') }}" style="color: black">ログイン</a>
-
-            </div>
-        </div>
-    </div>
-
-
 </body>
 </html>
+
