@@ -1,0 +1,286 @@
+@charset "utf-8";
+
+
+/* ヘッダーh1テキスト */
+header h1 {
+            text-align: center;
+            /* テキストを中央揃えに設定 */
+            margin: 0;
+            font-size: 4vw;
+            font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+            position: relative;
+            z-index: 3;
+}
+
+/* ヘッダーh2テキスト */
+header h2 {
+            text-align: center;
+            /* テキストを中央揃えに設定 */
+            margin: 0;
+            font-size: 1.2vw;
+            font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+            position: relative;
+            z-index: 3;
+}
+
+
+/* ヘッダーh3 リンク付テキスト配置 */
+header h3 {
+            margin-top: 5%;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%
+}
+
+/* ヘッダーh3 リンク付テキスト色など */
+a  {
+    color: #fff;
+    font-size: 1.6vw;
+    font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+    z-index: 3;
+}
+
+/* ヘッダーh3 リンク付テキスト マウスホバーのアニメーション*/
+header ul{
+    display: flex;
+    list-style: none;
+    justify-content:  space-around ;
+    align-items: center;
+    height: 100%;
+}
+header a{
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+}
+header a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -1vw;
+    background: #fff;
+    height: 2px;
+    transform: scale(0, 1);
+}
+header a:hover::after {
+    transform: scale(1, 1);
+}
+
+/* ヘッダーとボディの間隔 */
+section {
+    padding: 5vw 0;
+}
+
+/* bodyのh2テキストについて */
+.products-section h2,
+.kodawari h2,
+.contact-section h2,
+.access h2{
+    font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+    font-size: 2vw;
+    padding-bottom: 1vw;
+    padding-left: 30%;
+    padding-right: 30%;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+/* ================================ */
+
+/* フッターの配置設定 */
+footer {
+    background-color: #ffffff;
+    /* color: #fff; */
+    /* text-align: center; */
+    padding: 5% 0;
+    image-rendering:auto ;
+    text-align: center;
+}
+
+/* フッター最下部のコピー文字サイズ */
+/* 2024 大土井商店公式ホームページのテキスト設定 */
+footer p{
+    font-size: 1vw;
+    text-align: center;
+    font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+}
+
+/* フッター画像の大きさ変更 */
+footer img{
+    width: 60%;
+    height: 60%;
+}
+
+
+/* ============================- */
+/* ★店舗概要 */
+.company-info h2 {
+    font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+    padding-bottom: 1vw;
+    padding-left: 30%;
+    padding-right: 30%;
+    max-width: 100%;
+    height: auto;
+    font-size: 2vw;
+    text-align: center;
+  /* 高さを自動調整してアスペクト比を保持する */
+}
+
+/* 店舗概要のセクション 設定 */
+.company-info h3{
+    font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+    padding-bottom: 1vw;
+    padding-left: 30%;
+    padding-right: 30%;
+    max-width: 100%;
+    height: auto;
+    font-size: 1.2vw;
+    text-align: left;
+
+}
+
+/* ============================- */
+
+/* お問い合わせページ h2お問い合わせの下の文 */
+.contact-section p {
+    font-size: 1vw;
+    text-align: center;
+    font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+}
+
+button {
+        font-size: 1vw;
+}
+
+
+
+/* こだわりページの画像の配置センター */
+.kodawari h3 {
+                        text-align: center;
+}
+/* こだわり画像 レスポンシブな大きさ設定 */
+.kodawari img{
+                        width: 60%;
+}
+
+
+/* ============================- */
+/* ★商品紹介 */
+/* 商品画像配置 */
+.products-section ul {
+                        list-style: none;
+                        margin: 0;
+                        padding-left: 20%;
+                        padding-right: 20%;
+                        display: flex;
+                        gap: 1%;
+                        flex-wrap: wrap;
+}
+
+.products-section li {
+                        flex: 0 0 calc(33% - 2%);
+                        box-sizing: border-box;
+}
+
+.products-section img {
+                        transition: filter 0.1s ease-in-out;
+                        width: 100%;
+                        height: auto;
+}
+
+
+
+/* 商品マウスホバーぼかし */
+.products-section img:hover {opacity: 0.5;}
+
+
+
+/* ============================ */
+/* お問い合わせh2の下pタグの「ご質問や～」の上間隔 */
+form {
+        margin-top: 2%;
+}
+/* お問い合わせフォームの欄設定 */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+                width: 100%;
+                padding: 0.5%;
+                margin-bottom: 0.7%;
+                border: 0.2vw solid #ccc;
+                border-radius: 0.5vw;
+}
+form textarea {
+                height: 10vw;
+}
+form button {
+            padding: 1vw 2vw;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 0.5vw;
+            cursor: pointer;
+}
+
+/* お問い合わせ欄の項目名のテキスト設定 */
+form {
+        text-align: left;
+        font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+        font-size: 1.2vw;
+}
+
+
+/* =========================== */
+/* 店舗概要のアクセス */
+.access a ,
+iframe{
+    width: 60%;
+    padding-left: 20%;
+}
+
+
+/* 店舗概要の電話番号リンク、サイズ */
+.phone-link{
+            font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+            font-size: 1.2vw;
+            padding-bottom: 1vw;
+            padding-left: 30%;
+            padding-right: 30%;
+            max-width: 100%;
+            height: auto;
+            text-align: center;
+            /* 高さを自動調整してアスペクト比を保持する */
+            color: blue;
+            text-decoration: none;
+}
+/* 電話番号リンクのマウスホバー アニメーション */
+.phone-link:hover{
+                    text-decoration: underline;
+}
+
+/* ====================================== */
+
+/* 各商品ページの形式 */
+.dorayaki {
+            font-size: 1.5vw;
+            display: flex;
+            gap: 5vw;
+            padding-left: 8%;
+            padding-right: 8%;
+            /* テキスト設定 */
+            font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS 明朝", serif;
+}
+.dorayaki div {
+                flex: 1;
+}
+
+.dorayaki img{
+    width: 100%;
+    height: 110%;
+
+}
+
+
+

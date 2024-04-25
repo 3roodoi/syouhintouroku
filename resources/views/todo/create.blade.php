@@ -43,11 +43,9 @@
                             </p>
                         <br>
                     </div>
-                    {{-- <div class="form-group">
-                        <label for="title" class="control-label">商品名</label>
-                        <input class="form-control" name="title" type="text">
-                    </div> --}}
+
                     <button class="btn btn-primary" type="submit">登録</button>
+                    <a href="{{ url('todos')}}" class="btn btn-info">戻る</a>
                 </form>
             </div>
         </div>

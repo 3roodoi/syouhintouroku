@@ -73,43 +73,28 @@
         </script>
     </body>
 
-    <div class="container">
-        <section id="products" class="products-section">
-            <h2>商品紹介</h2>
-            <ul>
-                <li>
-                    <a href="{{ url('/dorayaki_bkwt8') }}">
-                        <img src="/img/【商品】どらやき8個.jpg" width="400" height="400" alt="どら焼き8個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/dorayaki_bkwt16') }}">
-                        <img src="../img/【商品】どらやき16個.jpg" width="400" height="400" alt="どら焼き16個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/cream4') }}">
-                        <img src="../img/【商品】クリーム小豆4個.jpg" width="400" height="400" alt="クリーム小豆4個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/cream8') }}">
-                        <img src="../img/【商品】クリーム小豆8個.jpg" width="400" height="400" alt="クリーム小豆8個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/matcha_cream4') }}">
-                        <img src="../img/【商品】抹茶4個.jpg" width="400" height="400" alt="抹茶4個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/matcha_cream_cream4') }}">
-                        <img src="../img/【商品】クリームどら焼き4個.jpg" width="400" height="400" alt="クリームどら焼き4個">
-                    </a>
-                </li>
-            </ul>
+    <main>
+        <section class="company-info">
+            <h2>店舗概要</h2>
+            <h3>社名　　　　大土井商店</h3>
+            <h3>所在地　　　〒815-0075 福岡県福岡市南区長丘1丁目20-10</h3>
+            <h3>創業　　　　平成18年5月</h3>
+            <h3>代表　　　　大土井 慎一</h3>
+            <h3>営業時間　　10:00〜19:00</h3>
+            <!-- <h3>電話番号　　092-552-7888</h3> -->
+            <a href="tel:0925527888" class="phone-link">電話番号　　092-552-7888</a>
         </section>
-    </div>
+
+        <section class="access">
+            <h2>アクセス</h2>
+            <a href="https://www.google.com/maps/place/〒815-0075+福岡県福岡市南区長丘1丁目">地図はこちら</a>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.020960024548!2d130.39437797452538!3d33.55283174393763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541915a40877745%3A0xf8d379ecf1c7e511!2z5aSn5Zyf5LqV5ZWG5bqX!5e0!3m2!1sja!2sjp!4v1710924769855!5m2!1sja!2sjp"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </p>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
@@ -117,18 +102,6 @@
             <p>&copy; 2024 大土井商店公式ホームページ</p>
         </div>
     </footer>
-
-        <div class="container" style="text-align:center; color:black;">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav">
-                <a class="nav-link" href="{{ route('login') }}" style="color: black">ログイン</a>
-
-            </div>
-        </div>
-    </div>
-
-
 </body>
+
 </html>

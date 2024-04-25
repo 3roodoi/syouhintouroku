@@ -73,43 +73,37 @@
         </script>
     </body>
 
-    <div class="container">
-        <section id="products" class="products-section">
-            <h2>商品紹介</h2>
-            <ul>
-                <li>
-                    <a href="{{ url('/dorayaki_bkwt8') }}">
-                        <img src="/img/【商品】どらやき8個.jpg" width="400" height="400" alt="どら焼き8個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/dorayaki_bkwt16') }}">
-                        <img src="../img/【商品】どらやき16個.jpg" width="400" height="400" alt="どら焼き16個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/cream4') }}">
-                        <img src="../img/【商品】クリーム小豆4個.jpg" width="400" height="400" alt="クリーム小豆4個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/cream8') }}">
-                        <img src="../img/【商品】クリーム小豆8個.jpg" width="400" height="400" alt="クリーム小豆8個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/matcha_cream4') }}">
-                        <img src="../img/【商品】抹茶4個.jpg" width="400" height="400" alt="抹茶4個">
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/matcha_cream_cream4') }}">
-                        <img src="../img/【商品】クリームどら焼き4個.jpg" width="400" height="400" alt="クリームどら焼き4個">
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </div>
+    <section id="contact" class="contact-section">
+
+        <div class="container">
+            <h2>お問い合わせ</h2>
+            <p>ご質問やご要望がございましたら、以下のフォームからお気軽にお問い合わせください。</p>
+
+
+
+            <div class="card-body">
+                <form method="POST" action="submit.php" enctype="multipart/form-data">
+            {{-- <form action="submit.php" method="post"> --}}
+            <div class="form-group">
+            <label for="name">　お名前:</label>
+                {{-- <input type="text" id="name" name="name" required> --}}
+                <input class="form-control" name="title" type="text" required>
+            </div>
+
+            <label for="email">　メールアドレス:</label>
+            <div class="form-group mb-3">
+                <input type="text" name="email" required autofocus>
+            </div>
+                <label for="message">　メッセージ:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button onclick="sendEmail()">お問い合わせを送信</button>
+            </form>
+        </div>
+    </section>
+
+
+
+
 
     <footer>
         <div class="container">
@@ -117,18 +111,6 @@
             <p>&copy; 2024 大土井商店公式ホームページ</p>
         </div>
     </footer>
-
-        <div class="container" style="text-align:center; color:black;">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav">
-                <a class="nav-link" href="{{ route('login') }}" style="color: black">ログイン</a>
-
-            </div>
-        </div>
-    </div>
-
-
 </body>
+
 </html>

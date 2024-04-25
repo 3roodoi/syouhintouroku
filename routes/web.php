@@ -1,10 +1,15 @@
 <?php
 
-use Illuminate\Support\FacadesR\oute;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\CustomAuthController;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
 });
 
 Route::get('todos', [TodoController::class, 'index']);
@@ -14,3 +19,48 @@ Route::get('todos/{id}', [TodoController::class, 'show']);
 Route::get('todos/{id}/edit', [TodoController::class, 'edit']);
 Route::put('todos/{id}', [TodoController::class, 'update']);
 Route::delete('todos/{id}', [TodoController::class, 'destroy']);
+
+// Route::get('todos', [CustomAuthController::class, 'todos']); //dashboardから変更２箇所
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+Route::get('register', [CustomAuthController::class, 'register'])->name('register-user'); //registration から変更
+Route::post('custom-register', [CustomAuthController::class, 'customRegister'])->name('register.custom'); //customRegistration customRegistrationから変更
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+Route::get('/kodawari', function () {
+    return view('kodawari');
+});
+
+Route::get('/kaisyagaiyou', function () {
+    return view('kaisyagaiyou');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
+Route::get('/dorayaki_bkwt8', function () {
+    return view('items/dorayaki_bkwt8');
+});
+
+Route::get('/dorayaki_bkwt16', function () {
+    return view('items/dorayaki_bkwt16');
+});
+
+Route::get('/cream4', function () {
+    return view('items/cream4');
+});
+
+Route::get('/cream8', function () {
+    return view('items/cream8');
+});
+
+Route::get('/matcha_cream4', function () {
+    return view('items/matcha_cream4');
+});
+
+Route::get('/matcha_cream_cream4', function () {
+    return view('items/matcha_cream_cream4');
+});
+
