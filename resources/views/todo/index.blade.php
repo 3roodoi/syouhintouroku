@@ -58,7 +58,6 @@
     </div>
 </div>
 
-
                 {{-- ページネーション --}}
                 <div style="margin: 1%;">
                     <table id="container" class="table table-sm table-bordered" style="width: 500px;"></table>
@@ -118,6 +117,20 @@
 
 @endsection
 
+<body>
 
-
-
+    <nav class="navbar navbar-light navbar-expand-lg mb-5"  style="background-color:rgb(26, 129, 248);">
+        <div class="container" >
+            <a class="navbar-brand mr-auto" href="todos" style="color: white;">編集ページ</a>
+            <div class="collapse navbar-collapse" id="navbarNav" >
+                <ul class="navbar-nav ml-auto">
+                    <a class="nav-link" href="{{ route('signout') }}" style="color: white" >Logout</a>
+                </ul>
+            </div>
+            <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</body>

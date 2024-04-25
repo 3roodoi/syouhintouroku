@@ -63,7 +63,7 @@ class CustomAuthController extends Controller
         ]);
     }
 
-    public function dashboard()
+    public function todos() //dashboard からtodosに変更
     {
         if(Auth::check()){
             return view('todos'); //dashboardから変更

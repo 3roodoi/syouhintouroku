@@ -38,7 +38,6 @@
                     <div class="form-group">
                         <label for="title" class="control-label">商品説明</label>
                         <input class="form-control" name="description" type="text" value="{{ $todo->description }}" >
-                        <small class="form-text text-muted">半角数字で入力してください。</small>
                     </div>
 
                     <br>
@@ -52,7 +51,9 @@
                     </div>
                     <hr>
                     <button class="btn btn-primary" type="submit">更新</button>
+                    <a href="{{ url('todos')}}" class="btn btn-info">戻る</a>
                 </form>
+
             </div>
         </div>
     </div>
