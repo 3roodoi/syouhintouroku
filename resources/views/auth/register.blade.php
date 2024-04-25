@@ -8,7 +8,6 @@
                 <div class="card">
                     <h3 class="card-header text-center" style="font-size: 2vw">新規登録</h3>
                     <div class="card-body">
-
                         <form action="{{ route('register.custom') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
@@ -48,14 +47,12 @@
                         <br>
                         <div class="form-group mb-3">
                             <div class="text">
-                                <a href="/login                                                                                                                                                                                                                                                           ">戻る</a>
+                                <a href="login">戻る</a>
                             </div>
-
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
-
 @endsection

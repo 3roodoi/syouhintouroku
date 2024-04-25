@@ -16,7 +16,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th>No</th>
                             <th>商品名</th>
                             <th>商品画像</th>
                             <th>価格</th>
@@ -28,9 +28,10 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @foreach($todos as $todo)
                         <tr>
-                            <td>{{ $todo->id }}</td>
+                            <td>{{ $todos->firstItem() + $loop->index }}</td>
                             <td>{{ $todo->title }}</td>
                             <td>
                                 @if($todo->image)
@@ -54,16 +55,40 @@
                     </tbody>
                 </table>
             </div>
+            {{-- <nav aria-label="Page navigation example"> --}}
+            {{-- </nav> --}}
         </div>
+        <div class="mt-3">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="{{ $todos->previousPageUrl() }}">
+                    <span aria-hidden="true">前に</span>
+                  </a>
+                </li>
+                @for ($i = 1; $i <= $todos->lastPage(); $i++)
+                <li class="page-item {{ ($todos->currentPage() == $i) ? 'active' : '' }}">
+                  <a class="page-link" href="{{ $todos->url($i) }}">{{ $i }}</a>
+                </li>
+                @endfor
+                <li class="page-item">
+                  <a class="page-link" href="{{ $todos->nextPageUrl() }}">
+                    <span aria-hidden="true">次に</span>
+                  </a>
+                </li>
+                </ul>
+                </nav>
+              </div>
     </div>
 </div>
 
                 {{-- ページネーション --}}
-                <div style="margin: 1%;">
-                    <table id="container" class="table table-sm table-bordered" style="width: 500px;"></table>
-                    <nav class="pagination-container"><ul class="pagination" id="pagination"></ul></nav>
-                </div>
-                <script>
+                {{-- <div style="margin: 1%;"> --}}
+                    {{-- <table id="container" class="table table-sm table-bordered" style="width: 500px;"></table>
+                    <nav class="pagination-container"><ul class="pagination" id="pagination"></ul></nav> --}}
+
+                {{-- </div> --}}
+                {{-- <script>
                     // ページ数を取得
                     var page = Number(getQueryParam('page'));
                     if (page < 1) page = 1;
@@ -72,8 +97,7 @@
                     perPage = 20;
                     maxPage = Math.ceil(count / perPage) // 51
 
-
-                                            // ページネーション
+                  // ページネーション
                     html = '';
                     if (page > 1) {
                         html += `<li class="page-item"><a class="page-link" href="?page=${page - 1}">前へ</a></li>`;
@@ -106,7 +130,7 @@
                         }
                         return null;
                     }
-                </script>
+                </script> --}}
 
                     <style>
                         .pagination {
@@ -124,9 +148,13 @@
             <a class="navbar-brand mr-auto" href="todos" style="color: white;">出品編集ページ</a>
             <div class="navbar-nav ml-auto" style="display: flex; justify-content: flex-end;">
                 {{-- <div class="navbar-nav ml-auto"> --}}
+                    @guest
+                    @else
                     <div class="navbar-nav style=display: flex; justify-content: flex-end;">
+                    <a class="nav-link" href="{{ route('register-user') }}" style="color: white" >新規ユーザー登録</a>
                     <a class="nav-link" href="{{ route('signout') }}" style="color: white" >ログアウト</a>
                 </div>
+                @endguest
             </div>
             {{-- <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

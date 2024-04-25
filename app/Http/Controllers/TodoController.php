@@ -13,7 +13,7 @@ class TodoController extends Controller
      */
 public function index()
 {
-    $todos = Todo::paginate(5);
+    $todos = Todo::paginate(1);
 
     return view('todo.index', compact('todos'));
 }
@@ -24,7 +24,7 @@ public function index()
         return view('todo.create');
     }
 
-        public function store(Request $request)
+    public function store(Request $request)
     {
         $todo = new Todo();
         $todo->title = $request->input('title');  //商品名
@@ -45,13 +45,6 @@ public function index()
         );
     }
 
-    // public function rules()
-    // {
-    //     return [
-    //         'title' => 'required|max:4'
-    //     ];
-    // }
-
     /**
      * Display the specified resource.
      */
@@ -62,8 +55,9 @@ public function index()
         return view('todo.show', compact('todo'));
     }
 
-
-// 編集画面
+    /**
+     * 編集画面
+     */
     public function edit(string $id)
     {
         $todo = Todo::find($id);

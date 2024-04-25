@@ -34,18 +34,12 @@
                             </div>
                         </form>
                         <br>
-                        <div class="form-group mb-3">
-                            <div class="text">
-                                <a href="/register">新規登録はこちら</a>
-                            </div>
-                        </div>
 
                         <div class="form-group mb-3">
                             <div class="text">
                                 <a href="/welcome">戻る</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -26,13 +26,11 @@ class CustomAuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('todos') //dashboardから変更
-                        ->withSuccess('Signed in');
+                ->withSuccess('Signed in');
         }
         $validator['emailPassword'] = 'メールアドレスもしくはパスワードが間違っています。';
         return redirect("login")->withErrors($validator);
     }
-
-
 
     public function register()
     {
@@ -42,15 +40,14 @@ class CustomAuthController extends Controller
     public function customRegister(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:20',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|max:20',
         ]);
 
         $data = $request->all();
         $check = $this->create($data);
-
-        return redirect("todos")->withSuccess('You have signed-in'); //dashboard から変更
+        return redirect("todos")->withSuccess('You have signed-in');
     }
 
 
