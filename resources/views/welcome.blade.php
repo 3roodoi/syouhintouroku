@@ -35,15 +35,15 @@
 
     <style>
         header {
-    background-image: url("{{ asset('img/どら焼き.png') }}");
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 5vw 0;
-    max-width: 100%;
-    height: 100%;
-    position: relative;
-}
+            background-image: url("{{ asset('img/どら焼き.png') }}");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 5vw 0;
+            max-width: 100%;
+            height: 100%;
+            position: relative;
+        }
 
         header::before {
             content: "";
@@ -58,7 +58,6 @@
     </style>
 
     <body>
-        <!-- <header></header> -->
         <script>
             window.addEventListener('DOMContentLoaded', function () {
                 adjustOverlayHeight();
@@ -118,12 +117,12 @@
         </div>
     </footer>
 
-        <div class="container" style="text-align:center; color:black;">
-            <span class="navbar-toggler-icon"></span>
+    <div class="container" style="text-align:center; color:black;">
+        <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
-                <a class="nav-link" href="{{ route('login') }}" style="color: black">ログイン</a>
+                <a class="nav-link" href="{{ route('login') }}" style="color: black">管理者ログイン</a>
 
             </div>
         </div>
@@ -131,4 +130,5 @@
 
 
 </body>
+
 </html>

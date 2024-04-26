@@ -35,15 +35,15 @@
 
     <style>
         header {
-    background-image: url("{{ asset('img/どら焼き.png') }}");
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 5vw 0;
-    max-width: 100%;
-    height: 100%;
-    position: relative;
-}
+            background-image: url("{{ asset('img/どら焼き.png') }}");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 5vw 0;
+            max-width: 100%;
+            height: 100%;
+            position: relative;
+        }
 
         header::before {
             content: "";
@@ -81,7 +81,6 @@
             <h3>創業　　　　平成18年5月</h3>
             <h3>代表　　　　大土井 慎一</h3>
             <h3>営業時間　　10:00〜19:00</h3>
-            <!-- <h3>電話番号　　092-552-7888</h3> -->
             <a href="tel:0925527888" class="phone-link">電話番号　　092-552-7888</a>
         </section>
 

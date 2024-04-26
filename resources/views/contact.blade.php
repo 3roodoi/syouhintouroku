@@ -35,15 +35,15 @@
 
     <style>
         header {
-    background-image: url("{{ asset('img/どら焼き.png') }}");
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 5vw 0;
-    max-width: 100%;
-    height: 100%;
-    position: relative;
-}
+            background-image: url("{{ asset('img/どら焼き.png') }}");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 5vw 0;
+            max-width: 100%;
+            height: 100%;
+            position: relative;
+        }
 
         header::before {
             content: "";
@@ -58,7 +58,6 @@
     </style>
 
     <body>
-        <!-- <header></header> -->
         <script>
             window.addEventListener('DOMContentLoaded', function () {
                 adjustOverlayHeight();
@@ -79,31 +78,25 @@
             <h2>お問い合わせ</h2>
             <p>ご質問やご要望がございましたら、以下のフォームからお気軽にお問い合わせください。</p>
 
-
-
             <div class="card-body">
                 <form method="POST" action="submit.php" enctype="multipart/form-data">
-            {{-- <form action="submit.php" method="post"> --}}
-            <div class="form-group">
-            <label for="name">　お名前:</label>
-                {{-- <input type="text" id="name" name="name" required> --}}
-                <input class="form-control" name="title" type="text" required>
-            </div>
+                    {{-- <form action="submit.php" method="post"> --}}
+                        <div class="form-group">
+                            <label for="name">　お名前:</label>
+                            {{-- <input type="text" id="name" name="name" required> --}}
+                            <input class="form-control" name="title" type="text" required>
+                        </div>
 
-            <label for="email">　メールアドレス:</label>
-            <div class="form-group mb-3">
-                <input type="text" name="email" required autofocus>
+                        <label for="email">　メールアドレス:</label>
+                        <div class="form-group mb-3">
+                            <input type="text" name="email" required autofocus>
+                        </div>
+                        <label for="message">　メッセージ:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <button onclick="sendEmail()">お問い合わせを送信</button>
+                    </form>
             </div>
-                <label for="message">　メッセージ:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <button onclick="sendEmail()">お問い合わせを送信</button>
-            </form>
-        </div>
     </section>
-
-
-
-
 
     <footer>
         <div class="container">

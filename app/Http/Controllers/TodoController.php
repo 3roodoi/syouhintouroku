@@ -9,16 +9,18 @@ use Illuminate\Support\Facades\Storage;
 class TodoController extends Controller
 {
     /**
-     * ▪️git checkout
-     */
-public function index()
-{
-    $todos = Todo::paginate(5);
+    *  ▪️git checkout
+    */
+    public function index()
+    {
+        $todos = Todo::paginate(5);
 
-    return view('todo.index', compact('todos'));
-}
+        return view('todo.index', compact('todos'));
+    }
 
-// 登録画面
+    /**
+    * 登録画面
+    */
     public function create()
     {
         return view('todo.create');
@@ -101,5 +103,3 @@ public function index()
         );
     }
 }
-
-

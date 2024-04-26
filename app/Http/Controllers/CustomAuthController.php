@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Hash;
-use Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +25,7 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('todos') 
+            return redirect()->intended('todos')
                 ->withSuccess('Signed in');
         }
         $validator['emailPassword'] = 'メールアドレスもしくはパスワードが間違っています。';
@@ -54,22 +54,23 @@ class CustomAuthController extends Controller
     public function create(array $data)
     {
         return User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password'])
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
         ]);
     }
 
     public function todos()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             return view('todos');
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');
     }
 
-    public function signOut() {
+    public function signOut()
+    {
         Session::flush();
         Auth::logout();
 

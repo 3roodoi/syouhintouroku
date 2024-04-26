@@ -7,7 +7,8 @@
                 編集画面
             </div>
             <div class="card-body">
-                <form method="POST" action="/todos/{{ $todo->id }}" class="form-horizontal" enctype="multipart/form-data">
+                <form method="POST" action="/todos/{{ $todo->id }}" class="form-horizontal"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -24,29 +25,29 @@
                         <label for="image" class="control-label">画像</label>
                         <input class="form-control" name="image" type="file">
                         @if ($todo->image)
-                            <img src="{{ asset('storage/' . $todo->image) }}" alt="{{ $todo->title }}" style="width: 300px; height: 300px;">
+                        <img src="{{ asset('storage/' . $todo->image) }}" alt="{{ $todo->title }}"
+                            style="width: 300px; height: 300px;">
                         @endif
                     </div>
 
                     <div class="form-group">
                         <label for="title" class="control-label">価格</label>
-                        <input class="form-control" name="price" type="text"
-                        value="{{ $todo->price }}">
+                        <input class="form-control" name="price" type="text" value="{{ $todo->price }}">
                         <small class="form-text text-muted">半角数字で入力してください。</small>
                     </div>
 
                     <div class="form-group">
                         <label for="title" class="control-label">商品説明</label>
-                        <input class="form-control" name="description" type="text" value="{{ $todo->description }}" >
+                        <input class="form-control" name="description" type="text" value="{{ $todo->description }}">
                     </div>
 
                     <br>
                     <div class="form-group">
                         <label for="stock" class="control-label">在庫</label>
                         <br>
-                            <input type="radio" name="stock" value="1" {{$todo->stock ? 'checked':''}}> 有り
-                            <input type="radio" name="stock" value="0" {{!$todo->stock ? 'checked':''}}> 無し
-                            </p>
+                        <input type="radio" name="stock" value="1" {{$todo->stock ? 'checked':''}}> 有り
+                        <input type="radio" name="stock" value="0" {{!$todo->stock ? 'checked':''}}> 無し
+                        </p>
                         <br>
                     </div>
                     <hr>

@@ -15,11 +15,8 @@ class CreateTodosTable extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //igIncrements　idを格納するカラム
             $table->string('title');
-             //string　todoのタイトルを入れるカラム
             $table->timestamps();
-            //timestamps　作成日時　更新日時のカラムを作ってくれる
         });
     }
 

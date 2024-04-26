@@ -35,15 +35,15 @@
 
     <style>
         header {
-    background-image: url("{{ asset('img/どら焼き.png') }}");
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 5vw 0;
-    max-width: 100%;
-    height: 100%;
-    position: relative;
-}
+            background-image: url("{{ asset('img/どら焼き.png') }}");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 5vw 0;
+            max-width: 100%;
+            height: 100%;
+            position: relative;
+        }
 
         header::before {
             content: "";
@@ -80,11 +80,12 @@
     </section>
 
 
-        <footer>
-            <div class="container">
-                <img src="img/2長方形ロゴ.png" alt="問い合わせ先">
-                <p>&copy; 2024 大土井商店公式ホームページ</p>
-            </div>
-        </footer>
-    </body>
-    </html>
+    <footer>
+        <div class="container">
+            <img src="img/2長方形ロゴ.png" alt="問い合わせ先">
+            <p>&copy; 2024 大土井商店公式ホームページ</p>
+        </div>
+    </footer>
+</body>
+
+</html>

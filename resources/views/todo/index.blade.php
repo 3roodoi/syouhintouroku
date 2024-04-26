@@ -35,7 +35,8 @@
                             <td>{{ $todo->title }}</td>
                             <td>
                                 @if($todo->image)
-                                    <img src="{{ asset('storage/' . $todo->image) }}" alt="{{ $todo->title }}" style="width: 100px; height: 100px;">
+                                <img src="{{ asset('storage/' . $todo->image) }}" alt="{{ $todo->title }}"
+                                    style="width: 100px; height: 100px;">
                                 @endif
                             </td>
                             <td>{{ $todo->price }} 円</td>
@@ -55,62 +56,57 @@
                     </tbody>
                 </table>
             </div>
-            {{-- <nav aria-label="Page navigation example"> --}}
-            {{-- </nav> --}}
+
         </div>
         <div class="mt-3">
             <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="{{ $todos->previousPageUrl() }}">
-                    <span aria-hidden="true">前に</span>
-                  </a>
-                </li>
-                @for ($i = 1; $i <= $todos->lastPage(); $i++)
-                <li class="page-item {{ ($todos->currentPage() == $i) ? 'active' : '' }}">
-                  <a class="page-link" href="{{ $todos->url($i) }}">{{ $i }}</a>
-                </li>
-                @endfor
-                <li class="page-item">
-                  <a class="page-link" href="{{ $todos->nextPageUrl() }}">
-                    <span aria-hidden="true">次に</span>
-                  </a>
-                </li>
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $todos->previousPageUrl() }}">
+                            <span aria-hidden="true">前に</span>
+                        </a>
+                    </li>
+                    @for ($i = 1; $i <= $todos->lastPage(); $i++)
+                        <li class="page-item {{ ($todos->currentPage() == $i) ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $todos->url($i) }}">{{ $i }}</a>
+                        </li>
+                        @endfor
+                        <li class="page-item">
+                            <a class="page-link" href="{{ $todos->nextPageUrl() }}">
+                                <span aria-hidden="true">次に</span>
+                            </a>
+                        </li>
                 </ul>
-                </nav>
-              </div>
+            </nav>
+        </div>
     </div>
 </div>
 
-                    <style>
-                        .pagination {
-                        display: flex;
-                        justify-content: center;
-                        }
-                    </style>
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+    }
+</style>
 
 @endsection
 
 <body>
 
-    <nav class="navbar navbar-light navbar-expand-lg mb-5"  style="background-color:rgb(26, 129, 248);">
-        <div class="container" >
+    <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color:rgb(26, 129, 248);">
+        <div class="container">
             <a class="navbar-brand mr-auto" href="todos" style="color: white;">出品編集ページ</a>
             <div class="navbar-nav ml-auto" style="display: flex; justify-content: flex-end;">
                 {{-- <div class="navbar-nav ml-auto"> --}}
                     @guest
                     @else
                     <div class="navbar-nav style=display: flex; justify-content: flex-end;">
-                    <a class="nav-link" href="{{ route('register-user') }}" style="color: white" >新規ユーザー登録</a>
-                    <a class="nav-link" href="{{ route('signout') }}" style="color: white" >ログアウト</a>
+                        <a class="nav-link" href="{{ route('register-user') }}" style="color: white">新規ユーザー登録</a>
+                        <a class="nav-link" href="{{ route('signout') }}" style="color: white">ログアウト</a>
+                    </div>
+                    @endguest
                 </div>
-                @endguest
+                </button>
             </div>
-            {{-- <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span> --}}
-            </button>
-            {{-- 上記を修正 --}}
-        </div>
     </nav>
 </body>

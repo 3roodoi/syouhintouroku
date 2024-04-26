@@ -11,7 +11,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="title" class="control-label">商品名</label>
-                        <input class="form-control" name="title" type="text">
+                        <input class="form-control" name="title" type="text" maxlength="20">
                     </div>
                     <div class="form-group">
                         <label for="image" class="control-label">商品画像</label>
@@ -20,7 +20,8 @@
 
                     <div class="form-group" style="margin-bottom: 30px">
                         <label for="price">価格</label>
-                        <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" />
+                        <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
+                            name="price" />
                         <small class="form-text text-muted">半角数字で入力してください。</small>
                         @error('price')
                         <p class="text-danger">{{ $message }}</p>
@@ -29,18 +30,17 @@
 
                     <div class="form-group">
                         <label for="description">商品説明</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" id="textarea" rows="5" name="description"></textarea>
-                        {{-- @error('description')
-                        <p class="text-danger">{{ $message }}</p>
-                        @enderror --}}
+                        <textarea class="form-control @error('description') is-invalid @enderror" id="textarea" rows="5"
+                            name="description" maxlength="50">
+                        </textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="stock" class="control-label">在庫</label>
                         <br>
-                            <input type="radio" name="stock" value="1"> 有り
-                            <input type="radio" name="stock" value="0"> 無し
-                            </p>
+                        <input type="radio" name="stock" value="1"> 有り
+                        <input type="radio" name="stock" value="0"> 無し
+                        </p>
                         <br>
                     </div>
 
