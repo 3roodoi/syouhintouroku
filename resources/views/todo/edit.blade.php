@@ -17,12 +17,14 @@
                     </div>
                     <hr>
                     <div class="form-group">
-                        <label for="title" class="control-label">タイトル</label>
-                        <input class="form-control" name="title" type="text" value="{{ $todo->title }}">
+                        <label for="title" class="control-label">商品名</label>
+                        <input class="form-control" name="title" type="text" value="{{ $todo->title }}" maxlength="50" required>
+                        <small class="form-text text-muted">50文字以内で入力してください。
+                        </small>
                     </div>
 
                     <div class="form-group">
-                        <label for="image" class="control-label">画像</label>
+                        <label for="image" class="control-label">商品画像</label>
                         <input class="form-control" name="image" type="file">
                         @if ($todo->image)
                         <img src="{{ asset('storage/' . $todo->image) }}" alt="{{ $todo->title }}"
@@ -32,14 +34,15 @@
 
                     <div class="form-group">
                         <label for="title" class="control-label">価格</label>
-                        <input class="form-control" name="price" type="text" value="{{ $todo->price }}">
+                        <input class="form-control" name="price" type="number" value="{{ $todo->price }}" maxlength="20" required>
                         <small class="form-text text-muted">半角数字で入力してください。</small>
                     </div>
 
                     <div class="form-group">
-                        <label for="title" class="control-label">商品説明</label>
-                        <input class="form-control" name="description" type="text" value="{{ $todo->description }}">
+                      <label for="title" class="control-label">商品説明</label>
+                      <input class="form-control" name="description" type="text" value="{{ $todo->description }}">
                     </div>
+                      <small class="form-text text-muted">300文字以内で入力してください。</small>
 
                     <br>
                     <div class="form-group">
