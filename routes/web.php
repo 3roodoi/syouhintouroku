@@ -62,3 +62,8 @@ Route::get('/matcha_cream4', function () {
 Route::get('/matcha_cream_cream4', function () {
     return view('items/matcha_cream_cream4');
 });
+
+Route::get('/trashed_todos', function () {
+  return view('todo/trashed_todos');
+});
+

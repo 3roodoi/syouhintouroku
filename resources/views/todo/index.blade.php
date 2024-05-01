@@ -41,7 +41,8 @@
                     {{ session('status') }}
                 </div>
                 @endif
-                <a href="{{ url('todos/create') }}" class="btn btn-success mb-3">登録</a>
+                <a href="{{ url('todos/create') }}" class="btn btn-success mb-3">商品登録</a>
+                <a href="{{ url('trashed_todos') }}" class="btn btn-danger mb-3">削除済み</a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -117,24 +118,4 @@
         justify-content: center;
     }
 </style>
-
 @endsection
-
-{{-- <body>
-
-    <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color:rgb(26, 129, 248);">
-        <div class="container">
-            <a class="navbar-brand mr-auto" href="todos" style="color: white;">出品編集ページ</a>
-            <div class="navbar-nav ml-auto" style="display: flex; justify-content: flex-end;">
-                    @guest
-                    @else
-                    <div class="navbar-nav style=display: flex; justify-content: flex-end;">
-                        <a class="nav-link" href="{{ route('register-user') }}" style="color: white">新規ユーザー登録</a>
-                        <a class="nav-link" href="{{ route('signout') }}" style="color: white">ログアウト</a>
-                    </div>
-                    @endguest
-                </div>
-                </button>
-            </div>
-    </nav>
-</body> --}}
