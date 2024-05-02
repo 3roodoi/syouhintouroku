@@ -19,13 +19,8 @@ Route::get('todos/{id}', [TodoController::class, 'show']);
 Route::get('todos/{id}/edit', [TodoController::class, 'edit']);
 Route::put('todos/{id}', [TodoController::class, 'update']);
 Route::delete('todos/{id}', [TodoController::class, 'destroy']);
-Route::get('deleted', [TodoController::class, 'trash'])->name('deleted');
-
-
-// Route::get('deleted', function () {
-//   return view('todo/deleted');
-// });
-// Route::get('todos/trashbox', [TodoController::class, 'trash']);
+Route::get('deleted', [TodoController::class, 'trash']);
+Route::get('todos/restore/{id}', [TodoController::class, 'restore']);
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');

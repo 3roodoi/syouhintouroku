@@ -103,17 +103,19 @@ class TodoController extends Controller
     );
   }
 
-  // public function getTrashedTodos()
-  // {
-  //   $trashedTodos = Todo::onlyTrashed()->get();
-  //   $trashedTodos->withTrashed(['title', 'image', 'price', 'description']);
-
-  //   return view('trashbox', ['trashedTodos' => $trashedTodos]);
-  // }
-
   public function trash()
   {
-    $todos = Todo::onlyTrashed()->get();
-    return view('todo.deleted', compact('todos'));
+    $todos = Todo::onlyTrashed()->whereNotNull('deleted_at')->get();
+    return view('trash.deleted', compact('todos'));
+  }
+
+  public function restore(string $id)
+  {
+    $todos = Todo::onlyTrashed()->findOrFail($id);
+    $todos->restore();
+    return redirect('todos')->with(
+      'status',
+      $todos->title . '復元しました！'
+    );
   }
 }
