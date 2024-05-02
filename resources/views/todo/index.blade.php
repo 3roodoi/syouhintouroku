@@ -42,7 +42,7 @@
                 </div>
                 @endif
                 <a href="{{ url('todos/create') }}" class="btn btn-success mb-3">商品登録</a>
-                <a href="{{ url('trashbox') }}" class="btn btn-danger mb-3">削除済み</a>
+                <a href="{{ url('deleted') }}" class="btn btn-danger mb-3">削除済み</a>
                 <table class="table">
                     <thead>
                         <tr>

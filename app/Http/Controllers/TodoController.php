@@ -8,98 +8,112 @@ use Illuminate\Support\Facades\Storage;
 
 class TodoController extends Controller
 {
-    /**
-    *  ▪️git checkout
-    */
-    public function index()
-    {
-        $todos = Todo::paginate(5);
+  /**
+   *  ▪️git checkout
+   */
+  public function index()
+  {
+    $todos = Todo::paginate(5);
 
-        return view('todo.index', compact('todos'));
+    return view('todo.index', compact('todos'));
+  }
+
+  /**
+   * 登録画面
+   */
+  public function create()
+  {
+    return view('todo.create');
+  }
+
+  public function store(Request $request)
+  {
+    $todo = new Todo();
+    $todo->title = $request->input('title');  //商品名
+
+    if ($request->hasFile('image')) {
+      $imagePath = $request->file('image')->store('images', 'public');
+      $todo->image = $imagePath;  //商品画像
     }
+    $todo->description = $request->input('description');  //商品説明
+    $todo->price = $request->input('price');  //価格
+    $todo->stock = $request->input('stock', false);  //在庫
 
-    /**
-    * 登録画面
-    */
-    public function create()
-    {
-        return view('todo.create');
+    $todo->save();
+
+    return redirect('todos')->with(
+      'status',
+      $todo->title . 'を登録しました!'
+    );
+  }
+
+  /**
+   * Display the specified resource.
+   */
+  public function show(string $id)
+  {
+    $todo = Todo::find($id);
+
+    return view('todo.show', compact('todo'));
+  }
+
+  /**
+   * 編集画面
+   */
+  public function edit(string $id)
+  {
+    $todo = Todo::find($id);
+    return view('todo.edit', compact('todo'));
+  }
+
+  /**
+   * Update the specified resource in storage.
+   */
+  public function update(Request $request, string $id)
+  {
+    $todo = Todo::find($id);
+    $todo->title = $request->input('title');  //商品名
+    $todo->stock = $request->input('stock');  //在庫
+    $todo->price = $request->input('price');  //価格
+    $todo->description = $request->input('description');  //商品説明
+
+    if ($request->hasFile('image')) {
+      $imagePath = $request->file('image')->store('images', 'public');
+      $todo->image = $imagePath;  //画像
     }
+    $todo->save();
 
-    public function store(Request $request)
-    {
-        $todo = new Todo();
-        $todo->title = $request->input('title');  //商品名
+    return redirect('todos')->with(
+      'status',
+      $todo->title . 'を更新しました!'
+    );
+  }
 
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-            $todo->image = $imagePath;  //商品画像
-        }
-        $todo->description = $request->input('description');  //商品説明
-        $todo->price = $request->input('price');  //価格
-        $todo->stock = $request->input('stock', false);  //在庫
+  /**
+   * Remove the specified resource from storage.
+   */
+  public function destroy(string $id)
+  {
+    $todo = Todo::find($id);
+    $todo->delete();
 
-        $todo->save();
+    return redirect('todos')->with(
+      'status',
+      $todo->title . 'を削除しました!'
+    );
+  }
 
-        return redirect('todos')->with(
-            'status',
-            $todo->title . 'を登録しました!'
-        );
-    }
+  // public function getTrashedTodos()
+  // {
+  //   $trashedTodos = Todo::onlyTrashed()->get();
+  //   $trashedTodos->withTrashed(['title', 'image', 'price', 'description']);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $todo = Todo::find($id);
+  //   return view('trashbox', ['trashedTodos' => $trashedTodos]);
+  // }
 
-        return view('todo.show', compact('todo'));
-    }
-
-    /**
-     * 編集画面
-     */
-    public function edit(string $id)
-    {
-        $todo = Todo::find($id);
-        return view('todo.edit', compact('todo'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        $todo = Todo::find($id);
-        $todo->title = $request->input('title');  //商品名
-        $todo->stock = $request->input('stock');  //在庫
-        $todo->price = $request->input('price');  //価格
-        $todo->description = $request->input('description');  //商品説明
-
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-            $todo->image = $imagePath;  //画像
-        }
-        $todo->save();
-
-        return redirect('todos')->with(
-            'status',
-            $todo->title . 'を更新しました!'
-        );
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        $todo = Todo::find($id);
-        $todo->delete();
-
-        return redirect('todos')->with(
-            'status',
-            $todo->title . 'を削除しました!'
-        );
-    }
+  public function trash()
+  {
+    $todos = Todo::onlyTrashed()->get();
+    return view('todo.deleted', compact('todos'));
+  }
 }

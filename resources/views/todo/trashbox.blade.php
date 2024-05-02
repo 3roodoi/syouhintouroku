@@ -27,7 +27,7 @@
   </nav>
 </header>
 
-<div class="row"> 
+<div class="row">
   <div class="col-12">
     <div class="card">
       <div class="card-header">
@@ -39,79 +39,64 @@
           {{ session('status') }}
         </div>
         @endif
-        <a href="{{ url('trashed_todos') }}" class="btn btn-danger mb-3">削除済み</a>
+        <a href="{{ url('trashbox') }}" class="btn btn-danger mb-3">削除済み</a>
         <a href="{{ url('todos')}}" class="btn btn-info mb-3">戻る</a>
         <table class="table">
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>商品名</th>
-              <th>商品画像</th>
-              <th>価格</th>
-              <th>商品説明</th>
-              <th>在庫</th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
 
-          {{-- <tbody>
+          <div class="container">
+            @if ($trashedTodos->count() > 0)
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>タイトル</th>
+                  <th>画像</th>
+                  <th>価格</th>
+                  <th>内容</th>
+                  <th>完了フラグ</th>
+                  <th>削除日時</th>
+                  <th>復元</th>
+                  <th>完全削除</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($trashedTodos as $trashedTodo)
+                <tr>
+                  <td>{{ $trashedTodos->id }}</td>
+                  <td>{{ $trashedTodos->title }}</td>
+                  <td>
+                    @if ($trashedTodos->image)
+                    <img src="{{ asset('storage/' . $trashedTodos->image) }}" alt="{{ $trashedTodos->title }}"
+                      width="100">
+                    @endif
+                  </td>
+                  <td>{{ $trashedTodo->price }}</td>
+                  <td>{{ $trashedTodo->description }}</td>
+                  <td>{{ $trashedTodo->completed ? '完了' : '未完了' }}</td>
+                  <td>{{ $trashedTodo->deleted_at }}</td>
+                  <td>
+                    <a href="{{ route('todos.restore', $trashedTodo->id) }}" class="btn btn-primary">復元</a>
+                  </td>
+                  <td>
+                    <form action="{{ route('todos.destroy', $trashedTodo->id) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger">完全削除</button>
+                    </form>
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @else
+            <p>ゴミ箱は空です。</p>
+            @endif
+          </div>
 
-            @foreach($todos as $todo)
-            <tr>
-              <td>{{ $todos->firstItem() + $loop->index }}</td>
-              <td>{{ $todo->title }}</td>
-              <td>
-                @if($todo->image)
-                <img src="{{ asset('storage/' . $todo->image) }}" alt="{{ $todo->title }}"
-                  style="width: 100px; height: 100px;">
-                @endif
-              </td>
-              <td>{{ $todo->price }} 円</td>
-              <td>{{ $todo->description }}</td>
-              <td>
-                <form method="POST" action="/todos/{{ $todo->id }}">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">削除</button>
-                </form>
-              </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-    <div class="mt-3">
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="{{ $todos->previousPageUrl() }}">
-              <span aria-hidden="true">前へ</span>
-            </a>
-          </li>
-          @for ($i = 1; $i <= $todos->lastPage(); $i++)
-            <li class="page-item {{ ($todos->currentPage() == $i) ? 'active' : '' }}">
-              <a class="page-link" href="{{ $todos->url($i) }}">{{ $i }}</a>
-            </li>
-            @endfor
-            <li class="page-item">
-              <a class="page-link" href="{{ $todos->nextPageUrl() }}">
-                <span aria-hidden="true">次へ</span>
-              </a>
-            </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</div> --}}
-
-<style>
-  .pagination {
-    display: flex;
-    justify-content: center;
-  }
-</style>
-@endsection 
+          <style>
+            .pagination {
+              display: flex;
+              justify-content: center;
+            }
+          </style>
+          @endsection

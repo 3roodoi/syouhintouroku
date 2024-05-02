@@ -5,11 +5,11 @@ use App\Http\Controllers\TodoController;
 use App\Http\Controllers\CustomAuthController;
 
 Route::get('/welcome', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 Route::get('/register', function () {
-    return view('auth.register');
+  return view('auth.register');
 });
 
 Route::get('todos', [TodoController::class, 'index']);
@@ -19,51 +19,53 @@ Route::get('todos/{id}', [TodoController::class, 'show']);
 Route::get('todos/{id}/edit', [TodoController::class, 'edit']);
 Route::put('todos/{id}', [TodoController::class, 'update']);
 Route::delete('todos/{id}', [TodoController::class, 'destroy']);
+Route::get('deleted', [TodoController::class, 'trash'])->name('deleted');
+
+
+// Route::get('deleted', function () {
+//   return view('todo/deleted');
+// });
+// Route::get('todos/trashbox', [TodoController::class, 'trash']);
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('register', [CustomAuthController::class, 'register'])->name('register-user');
-Route::post('custom-register', [CustomAuthController::class, 'customRegister'])->name('register.custom'); 
+Route::post('custom-register', [CustomAuthController::class, 'customRegister'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::get('/kodawari', function () {
-    return view('kodawari');
+  return view('kodawari');
 });
 
 Route::get('/kaisyagaiyou', function () {
-    return view('kaisyagaiyou');
+  return view('kaisyagaiyou');
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+  return view('contact');
 });
 
 
 Route::get('/dorayaki_bkwt8', function () {
-    return view('items/dorayaki_bkwt8');
+  return view('items/dorayaki_bkwt8');
 });
 
 Route::get('/dorayaki_bkwt16', function () {
-    return view('items/dorayaki_bkwt16');
+  return view('items/dorayaki_bkwt16');
 });
 
 Route::get('/cream4', function () {
-    return view('items/cream4');
+  return view('items/cream4');
 });
 
 Route::get('/cream8', function () {
-    return view('items/cream8');
+  return view('items/cream8');
 });
 
 Route::get('/matcha_cream4', function () {
-    return view('items/matcha_cream4');
+  return view('items/matcha_cream4');
 });
 
 Route::get('/matcha_cream_cream4', function () {
-    return view('items/matcha_cream_cream4');
+  return view('items/matcha_cream_cream4');
 });
-
-Route::get('/trashbox', function () {
-  return view('todo/trashbox');
-});
-
