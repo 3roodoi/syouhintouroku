@@ -21,6 +21,11 @@ Route::put('todos/{id}', [TodoController::class, 'update']);
 Route::delete('todos/{id}', [TodoController::class, 'destroy']);
 Route::get('deleted', [TodoController::class, 'trash']);
 Route::get('todos/restore/{id}', [TodoController::class, 'restore']);
+// Route::break('/todos/{id}', 'TodoController@break')->name('todos.break');
+Route::delete('todos/break/{id}', 'TodoController@break')->name('todos.break');;
+// Route::delete('todos/break/{id}', [TodoController::class, 'break']);
+
+
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');

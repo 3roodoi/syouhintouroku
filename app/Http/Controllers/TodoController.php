@@ -118,4 +118,15 @@ class TodoController extends Controller
       $todos->title . '復元しました！'
     );
   }
+
+  public function break(string $id)
+  {
+    $todos = Todo::onlyTrashed()->findOrFail($id);
+    $todos->forceDelete();
+    return redirect('todos')->with(
+      'status',
+      $todos->title . '完全に削除しました！'
+    );
+  } 
+
 }

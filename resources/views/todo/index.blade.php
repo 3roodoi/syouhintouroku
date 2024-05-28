@@ -18,10 +18,18 @@
           <a class="nav-link" href="{{ route('signout') }}">ログアウト</a>
         </li>
       </ul>
-      <form class="d-flex" role="search" >
+      {{-- <form class="d-flex" role="search" >
         <input class="form-control me-2" type="search" placeholder="商品検索" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form> --}}
+      {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </ul>
+      </div> --}}
     </div>
   </div>
 </nav>
@@ -78,7 +86,24 @@
                                 <form method="POST" action="/todos/{{ $todo->id }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">削除</button>
+                                    <button class="btn btn-danger" type="submit" data  -id="{{ $todo->id }}" id="trash">削除</button>
+                                        <script>
+                                            const deleteButtons = document.querySelectorAll('#trash');
+                                            
+                                            deleteButtons.forEach(button => {
+                                            button.addEventListener('click', function(event) {
+                                            event.preventDefault(); // デフォルトの送信処理をキャンセル
+                                            
+                                            const todoId = this.dataset.id; // ボタンの data-id 属性を取得
+                                            const confirmationMessage = `商品を削除しますか？`;
+                                            
+                                            if (confirm(confirmationMessage)) {
+                                            // 送信処理を実行
+                                            this.parentNode.submit(); // ボタンを含むフォームを送信
+                                            }
+                                            });
+                                            });
+                                        </script>
                                 </form>
                             </td>
                         </tr>

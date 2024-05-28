@@ -44,7 +44,13 @@
                 <th>価格</th>
                 <th>内容</th>
                 <th></th>
+                <th></th>
               </tr>
+              <style>
+                .hide {
+                  display: none;
+                }
+              </style>
             </thead>
             <tbody>
               @foreach($todos as $todo)
@@ -58,7 +64,33 @@
                 </td>
                 <td>{{ $todo->price }}</td>
                 <td>{{ $todo->description }}</td>
-                <td><a href="{{ url('todos/restore/'.$todo->id) }}" class="btn btn-primary">復元</a></td>
+                <td>
+                  {{-- <a href="{{ url('todos/restore/'.$todo->id) }}" class="btn btn-primary" id="restore">復元</a> --}}
+                <a href="#" class="btn btn-primary" id="restore-confirm" data-id="{{ $todo->id }}">復元</a>
+                <a href="{{ url('todos/restore/'.$todo->id) }}" class="btn btn-primary hide" id="restore-real-{{ $todo->id }}">復元</a>
+                  <script>
+                    const restoreConfirmButtons = document.querySelectorAll('.btn-primary#restore-confirm'); 
+                    restoreConfirmButtons.forEach(button => {
+                    button.addEventListener('click', function(event) {
+                    event.preventDefault(); // デフォルトのリンク動作を抑制
+                    
+                    const restoreRealButtonId = `restore-real-${button.dataset.id}`; // data-id 属性を使用して、対応する "restore-real" ボタンの ID を取得
+                    const restoreRealButton = document.getElementById(restoreRealButtonId);
+                    
+                    if (confirm('この商品データを復元しますか？')) {
+                    restoreRealButton.click(); // 実際の "restore-real" ボタンをクリック
+                    }
+                    });
+                    });
+                  </script>
+                </td>
+                <td>
+                  {{-- <form action="{{ route('todos.breake', $todo->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">完全削除</button>
+                  </form> --}}
+                  {{-- <a href="{{ url('todos/break/' .$todo->id) }}" class="btn btn-danger">完全削除</a>
+                </td> --}}
               </tr>
               @endforeach
             </tbody>
