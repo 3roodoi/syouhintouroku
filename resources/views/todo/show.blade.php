@@ -20,8 +20,7 @@
                         <tr>
                             <th>画像</th>
                             <td>
-                                @if($todo->image) <img src="{{ asset('storage/' . $todo->image) }}"
-                                    alt="{{ $todo->title }}" style="width: 50%; height: 50%;">
+                                @if($todo->image) <img src="{{ asset('storage/' . $todo->image) }}" alt="{{ $todo->title }}" style="width: 25%; height: 25%;">
                                 @endif
                             </td>
                         </tr>

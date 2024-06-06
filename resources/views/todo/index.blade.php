@@ -8,7 +8,7 @@
       aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" style="color: rgb(31, 114, 247)">商品編集画面</a>
+    <a class="navbar-brand" style="color: rgb(31, 114, 247)">商品編集システム</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -50,6 +50,7 @@
                 </div>
                 @endif
                 <a href="{{ url('todos/create') }}" class="btn btn-success mb-3">商品登録</a>
+                <a href="{{ url('schedule/index') }}" class="btn btn-warning mb-3">出品予定一覧</a>
                 <a href="{{ url('deleted') }}" class="btn btn-danger mb-3">削除済み</a>
                 <table class="table">
                     <thead>

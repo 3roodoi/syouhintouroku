@@ -1,31 +1,20 @@
 @extends("layouts.app")
 @section("content")
 
-{{-- <header>
+<header>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
         aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" style="color: rgb(31, 114, 247)">商品編集画面</a>
+      <a class="navbar-brand" style="color: rgb(247, 31, 31)">削除済み商品</a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ route('register-user') }}">新規ユーザー登録</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('signout') }}">ログアウト</a>
-          </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="商品検索" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
-</header> --}}
+</header>
 
 <div class="row">
   <div class="col-12">
@@ -43,6 +32,7 @@
                 <th>画像</th>
                 <th>価格</th>
                 <th>内容</th>
+                <th>出品予定だった日程</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -64,6 +54,7 @@
                 </td>
                 <td>{{ $todo->price }}</td>
                 <td>{{ $todo->description }}</td>
+                <td>{{ $todo->schedule_at }}</td>
                 <td>
                   {{-- <a href="{{ url('todos/restore/'.$todo->id) }}" class="btn btn-primary" id="restore">復元</a> --}}
                 <a href="#" class="btn btn-primary" id="restore-confirm" data-id="{{ $todo->id }}">復元</a>

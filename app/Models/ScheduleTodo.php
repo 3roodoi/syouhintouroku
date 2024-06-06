@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Todo extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+  use HasFactory;
+  use SoftDeletes;
 
-    protected $fillable = ['name', 'description', 'schedule_at'];
+  protected $fillable = ['name', 'description', 'schedule_at'];
 
 }

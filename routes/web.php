@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\ScheduleTodoController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\RegisterTodoController;
 
 Route::get('/welcome', function () {
   return view('welcome');
@@ -25,6 +27,13 @@ Route::get('todos/restore/{id}', [TodoController::class, 'restore']);
 Route::delete('todos/break/{id}', 'TodoController@break')->name('todos.break');;
 // Route::delete('todos/break/{id}', [TodoController::class, 'break']);
 
+Route::get('/schedule/index', [ScheduleTodoController::class, 'index']);
+Route::get('schedule/create', [ScheduleTodoController::class, 'create']);
+Route::post('/schedule/index', [ScheduleTodoController::class, 'store']);
+Route::get('/schedule/{id}/edit', [ScheduleTodoController::class, 'edit']);
+Route::put('schedule/{id}/index', [ScheduleTodoController::class, 'update']);
+Route::delete('schedule/{id}/index', [ScheduleTodoController::class, 'destroy']);
+Route::get('deleted', [ScheduleTodoController::class, 'trash']);
 
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');

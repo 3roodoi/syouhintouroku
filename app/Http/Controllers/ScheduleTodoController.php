@@ -6,7 +6,7 @@ use App\Models\Todo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class TodoController extends Controller
+class ScheduleTodoController extends Controller
 {
   /**
    *  ▪️git checkout
@@ -14,12 +14,11 @@ class TodoController extends Controller
   public function index()
   {
     $todos = Todo::where(function ($query) {
-      $query->whereNull('schedule_at')
-      ->orWhere('schedule_at', '<=', now());
-    })
-    ->paginate(4);
+      $query->whereNotNull('schedule_at')
+      ->where('schedule_at', '>', now());
+    })->paginate(4);
 
-    return view('todo.index', compact('todos'));
+    return view('schedule.index', compact('todos'));
   }
 
   /**
@@ -27,7 +26,7 @@ class TodoController extends Controller
    */
   public function create()
   {
-    return view('todo.create');
+    return view('schedule.create');
   }
 
   public function store(Request $request)
@@ -41,31 +40,21 @@ class TodoController extends Controller
     }
     $todo->description = $request->input('description');  //商品説明
     $todo->price = $request->input('price');  //価格
-    $todo->stock = $request->input('stock', false);  //在庫    
+    $todo->stock = $request->input('stock', false);  //在庫
+    $todo->schedule_at = $request->input('schedule_at');  //出品予定日時
+
     $todo->save();
 
-    return redirect('todos')->with('status', $todo->title . 'を登録しました!'
+    return redirect('/schedule/index')->with('status', $todo->title . 'を登録しました!'
     );
   }
 
-  /**
-   * Display the specified resource.
-   */
-  public function show(string $id)
-  {
-    $todo = Todo::find($id);
-
-    return view('todo.show', compact('todo'));
-  }
-
-  /**
-   * 編集画面
-   */
   public function edit(string $id)
   {
     $todo = Todo::find($id);
-    return view('todo.edit', compact('todo'));
+    return view('schedule.edit', compact('todo'));
   }
+
 
   /**
    * Update the specified resource in storage.
@@ -77,7 +66,7 @@ class TodoController extends Controller
     $todo->stock = $request->input('stock');  //在庫
     $todo->price = $request->input('price');  //価格
     $todo->description = $request->input('description');  //商品説明
-    // $todo->schedule_at = $request->input('schedule_at', false);  //出品予定日時
+    $todo->schedule_at = $request->input('schedule_at',);  //出品予定日時
 
     if ($request->hasFile('image')) {
       $imagePath = $request->file('image')->store('images', 'public');
@@ -85,9 +74,7 @@ class TodoController extends Controller
     }
     $todo->save();
 
-    return redirect('todos')->with(
-      'status',
-      $todo->title . 'を更新しました!'
+    return redirect('/schedule/index')->with('status', $todo->title . 'を更新しました!'
     );
   }
 
@@ -99,7 +86,7 @@ class TodoController extends Controller
     $todo = Todo::find($id);
     $todo->delete();
 
-    return redirect('todos')->with(
+    return redirect('/schedule/index')->with(
       'status',
       $todo->title . 'を削除しました!'
     );
@@ -110,25 +97,4 @@ class TodoController extends Controller
     $todos = Todo::onlyTrashed()->whereNotNull('deleted_at')->get();
     return view('trash.deleted', compact('todos'));
   }
-
-  public function restore(string $id)
-  {
-    $todos = Todo::onlyTrashed()->findOrFail($id);
-    $todos->restore();
-    return redirect('todos')->with(
-      'status',
-      $todos->title . '復元しました！'
-    );
-  }
-
-  public function break(string $id)
-  {
-    $todos = Todo::onlyTrashed()->findOrFail($id);
-    $todos->forceDelete();
-    return redirect('todos')->with(
-      'status',
-      $todos->title . '完全に削除しました！'
-    );
-  } 
-
 }
