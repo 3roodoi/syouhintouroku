@@ -50,17 +50,19 @@
                 </div>
                 @endif
                 <a href="{{ url('todos/create') }}" class="btn btn-success mb-3">商品登録</a>
-                <a href="{{ url('schedule/index') }}" class="btn btn-warning mb-3">出品予定一覧</a>
+                <a href="{{ url('schedule/index') }}" class="btn btn-warning mb-3">出品予約一覧</a>
                 <a href="{{ url('deleted') }}" class="btn btn-danger mb-3">削除済み</a>
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>公開／非公開</th>
                             <th>No</th>
                             <th>商品名</th>
                             <th>商品画像</th>
                             <th>価格</th>
                             <th>商品説明</th>
                             <th>在庫</th>
+                            <th>公開期限</th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -70,6 +72,7 @@
 
                         @foreach($todos as $todo)
                         <tr>
+                            <td>{{ $todo->name }}</td>
                             <td>{{ $todos->firstItem() + $loop->index }}</td>
                             <td>{{ $todo->title }}</td>
                             <td>
@@ -81,6 +84,10 @@
                             <td>{{ $todo->price }} 円</td>
                             <td>{{ $todo->description }}</td>
                             <td>{{ $todo->stock ? '有り' : '無し' }}</td>
+                            <td style="color:rgba(255, 0, 0, 0.64)">{{ $todo->delete_schedule }}</td>
+                            <td>
+
+                            </td>
                             <td><a href="{{ url('todos/' . $todo->id) }}" class="btn btn-info">詳細</a></td>
                             <td><a href="{{ url('todos/' . $todo->id . '/edit') }}" class="btn btn-primary">編集</a></td>
                             <td>

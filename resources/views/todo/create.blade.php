@@ -46,8 +46,12 @@
                         <br>
                         <input type="radio" name="stock" value="1"> 有り
                         <input type="radio" name="stock" value="0"> 無し
-                        </p>
                         <br>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="delete_schedule">公開期限</label>
+                      <input type="datetime-local" id="delete_schedule" name="delete_schedule" class="form-control" style="width: 10%">
                     </div>
 
                     <button class="btn btn-primary" type="submit">登録</button>

@@ -51,7 +51,12 @@
 
           <div class="form-group">
             <label for="schedule_at">出品予定日程</label>
-            <input type="datetime-local" class="form-control" id="schedule_at" name="schedule_at" value="{{ old('schedule_at', $todo->schedule_at ?? '') }}">
+            <input type="datetime-local" class="form-control" id="schedule_at" name="schedule_at" value="{{ old('schedule_at', $todo->schedule_at ?? '') }}" style="width: 12%">
+          </div>
+
+          <div class="form-group">
+            <label for="delete_schedule">公開期限</label>
+            <input type="datetime-local" id="delete_schedule" name="delete_schedule" class="form-control" style="width: 12%">
           </div>
 
           <button class="btn btn-primary" type="submit">登録</button>

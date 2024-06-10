@@ -41,7 +41,9 @@ class TodoController extends Controller
     }
     $todo->description = $request->input('description');  //商品説明
     $todo->price = $request->input('price');  //価格
-    $todo->stock = $request->input('stock', false);  //在庫    
+    $todo->stock = $request->input('stock', false);  //在庫   
+    $deleteSchedule = $request->input('delete_schedule');
+    $todo->delete_schedule = $deleteSchedule; 
     $todo->save();
 
     return redirect('todos')->with('status', $todo->title . 'を登録しました!'
@@ -77,12 +79,13 @@ class TodoController extends Controller
     $todo->stock = $request->input('stock');  //在庫
     $todo->price = $request->input('price');  //価格
     $todo->description = $request->input('description');  //商品説明
-    // $todo->schedule_at = $request->input('schedule_at', false);  //出品予定日時
 
     if ($request->hasFile('image')) {
       $imagePath = $request->file('image')->store('images', 'public');
       $todo->image = $imagePath;  //画像
     }
+    $deleteSchedule = $request->input('delete_schedule');
+    $todo->delete_schedule = $deleteSchedule;
     $todo->save();
 
     return redirect('todos')->with(

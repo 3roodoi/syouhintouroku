@@ -42,6 +42,8 @@ class ScheduleTodoController extends Controller
     $todo->price = $request->input('price');  //価格
     $todo->stock = $request->input('stock', false);  //在庫
     $todo->schedule_at = $request->input('schedule_at');  //出品予定日時
+    $deleteSchedule = $request->input('delete_schedule');  //公開期限
+    $todo->delete_schedule = $deleteSchedule; 
 
     $todo->save();
 
@@ -67,6 +69,8 @@ class ScheduleTodoController extends Controller
     $todo->price = $request->input('price');  //価格
     $todo->description = $request->input('description');  //商品説明
     $todo->schedule_at = $request->input('schedule_at',);  //出品予定日時
+    $deleteSchedule = $request->input('delete_schedule');  //公開期限
+    $todo->delete_schedule = $deleteSchedule;
 
     if ($request->hasFile('image')) {
       $imagePath = $request->file('image')->store('images', 'public');
