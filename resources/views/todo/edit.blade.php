@@ -53,6 +53,14 @@
                         </p>
                         <br>
                     </div>
+
+                    <div class="form-group">
+                      <label for="delete_schedule">公開期限</label>
+                      <br>
+                      <input type="datetime-local" id="delete_schedule" name="delete_schedule" value="{{ $todo->delete_schedule }}">
+                    </div>
+
+
                     <hr>
                     <button class="btn btn-primary" type="submit">更新</button>
                     <a href="{{ url('todos')}}" class="btn btn-info">戻る</a>

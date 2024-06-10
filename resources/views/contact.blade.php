@@ -82,17 +82,23 @@
                 <form method="POST" action="submit.php" enctype="multipart/form-data">
                     {{-- <form action="submit.php" method="post"> --}}
                         <div class="form-group">
-                            <label for="name">　お名前:</label>
+                            <label for="name">お名前:</label>
+                            <br>
                             {{-- <input type="text" id="name" name="name" required> --}}
-                            <input class="form-control" name="title" type="text" required>
+                            <input class="form-control" name="title" type="text" required style="width: 50%">
                         </div>
+                        <br>
 
-                        <label for="email">　メールアドレス:</label>
+                        <label for="email">メールアドレス:</label>
+                        <br>
                         <div class="form-group mb-3">
-                            <input type="text" name="email" required autofocus>
+                            <input type="text" name="email" required autofocus style="width:50%">
                         </div>
-                        <label for="message">　メッセージ:</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <br>
+                        <label for="message">メッセージ:</label>
+                        <br>
+                        <textarea id="message" name="message" rows="4" required style="width: 60%"></textarea>
+                        <br>
                         <button onclick="sendEmail()">お問い合わせを送信</button>
                     </form>
             </div>

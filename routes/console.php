@@ -9,4 +9,5 @@ Artisan::command('inspire', function () {
   $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote')->hourly();
 
-Schedule::command('PublicationDeadline')->everyMinute();
+// Schedule::command('PublicationDeadline')->everyMinute();
+Schedule::command('DeleteScheduleTodo')->everyMinute();
