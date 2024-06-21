@@ -6,7 +6,6 @@ use App\Http\Controllers\ScheduleTodoController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\RegisterTodoController;
 use App\Http\Controllers\UnpublishedTodoController;
-use App\Http\Controllers\UnpublishedTodoController;
 
 Route::get('/welcome', function () {
   return view('welcome');
