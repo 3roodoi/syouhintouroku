@@ -100,6 +100,21 @@
                         <textarea id="message" name="message" rows="4" required style="width: 60%"></textarea>
                         <br>
                         <button onclick="sendEmail()">お問い合わせを送信</button>
+                        <script>
+                          function sendEmail()
+                          }
+                        </script>
+                          @if (session('success'))
+                          <div class="alert alert-success">
+                            {{ session('success') }}
+                          </div>
+                          @endif
+                          
+                          @if (session('error'))
+                          <div class="alert alert-danger">
+                            {{ session('error') }}
+                          </div>
+                          @endif
                     </form>
             </div>
     </section>
