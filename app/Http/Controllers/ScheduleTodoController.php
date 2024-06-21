@@ -43,8 +43,8 @@ class ScheduleTodoController extends Controller
     $todo->stock = $request->input('stock', false);  //在庫
     $todo->schedule_at = $request->input('schedule_at');  //出品予定日時
     $deleteSchedule = $request->input('delete_schedule');  //公開期限
-    $todo->delete_schedule = $deleteSchedule; 
-
+    $todo->delete_schedule = $deleteSchedule;
+    $todo->publish_or_unpublish = $request->input('publish_or_unpublish', true);  //公開／非公開
     $todo->save();
 
     return redirect('/schedule/index')->with('status', $todo->title . 'を登録しました!'
@@ -71,6 +71,7 @@ class ScheduleTodoController extends Controller
     $todo->schedule_at = $request->input('schedule_at',);  //出品予定日時
     $deleteSchedule = $request->input('delete_schedule');  //公開期限
     $todo->delete_schedule = $deleteSchedule;
+    $todo->publish_or_unpublish = $request->input('publish_or_unpublish');
 
     if ($request->hasFile('image')) {
       $imagePath = $request->file('image')->store('images', 'public');

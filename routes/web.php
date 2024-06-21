@@ -5,6 +5,7 @@ use App\Http\Controllers\TodoController;
 use App\Http\Controllers\ScheduleTodoController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\RegisterTodoController;
+use App\Http\Controllers\UnpublishedTodoController;
 
 Route::get('/welcome', function () {
   return view('welcome');
@@ -23,10 +24,9 @@ Route::put('todos/{id}', [TodoController::class, 'update']);
 Route::delete('todos/{id}', [TodoController::class, 'destroy']);
 Route::get('deleted', [TodoController::class, 'trash']);
 Route::get('todos/restore/{id}', [TodoController::class, 'restore']);
-// Route::break('/todos/{id}', 'TodoController@break')->name('todos.break');
-Route::delete('todos/break/{id}', 'TodoController@break')->name('todos.break');;
-// Route::delete('todos/break/{id}', [TodoController::class, 'break']);
+Route::delete('todos/break/{id}', 'TodoController@break')->name('todos.break');
 
+Route::get('unpublish', [UnpublishedTodoController::class, 'index']);
 Route::get('/schedule/index', [ScheduleTodoController::class, 'index']);
 Route::get('schedule/create', [ScheduleTodoController::class, 'create']);
 Route::post('/schedule/index', [ScheduleTodoController::class, 'store']);
