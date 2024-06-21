@@ -17,6 +17,7 @@ class TodoController extends Controller
       $query->whereNull('schedule_at')
       ->orWhere('schedule_at', '<=', now());
     })
+    ->where('publish_or_unpublish', 1) // 公開商品のみ取得
     ->paginate(4);
 
     return view('todo.index', compact('todos'));
@@ -43,7 +44,8 @@ class TodoController extends Controller
     $todo->price = $request->input('price');  //価格
     $todo->stock = $request->input('stock', false);  //在庫   
     $deleteSchedule = $request->input('delete_schedule');
-    $todo->delete_schedule = $deleteSchedule; 
+    $todo->delete_schedule = $deleteSchedule;
+    $todo->publish_or_unpublish = $request->input('publish_or_unpublish', true);  //公開／非公開   
     $todo->save();
 
     return redirect('todos')->with('status', $todo->title . 'を登録しました!'
@@ -79,6 +81,7 @@ class TodoController extends Controller
     $todo->stock = $request->input('stock');  //在庫
     $todo->price = $request->input('price');  //価格
     $todo->description = $request->input('description');  //商品説明
+    $todo->publish_or_unpublish = $request->input('publish_or_unpublish');
 
     if ($request->hasFile('image')) {
       $imagePath = $request->file('image')->store('images', 'public');
@@ -132,6 +135,5 @@ class TodoController extends Controller
       'status',
       $todos->title . '完全に削除しました！'
     );
-  } 
-
+  }
 }
