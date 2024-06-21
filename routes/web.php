@@ -25,8 +25,11 @@ Route::delete('todos/{id}', [TodoController::class, 'destroy']);
 Route::get('deleted', [TodoController::class, 'trash']);
 Route::get('todos/restore/{id}', [TodoController::class, 'restore']);
 Route::delete('todos/break/{id}', 'TodoController@break')->name('todos.break');
+// Route::break('/todos/{id}', 'TodoController@break')->name('todos.break');
 Route::delete('todos/break/{id}', 'TodoController@break')->name('todos.break');
+// Route::delete('todos/break/{id}', [TodoController::class, 'break']);
 
+// Route::get('unpublish', [TodoController::class, 'unpublish']);
 Route::get('unpublish', [UnpublishedTodoController::class, 'index']);
 
 
